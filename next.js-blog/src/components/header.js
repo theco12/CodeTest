@@ -1,5 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/header.module.css";
+import Image from "next/image";
+import logo from "../image/logo.svg";
 
 export default function Header() {
   return (
@@ -7,7 +9,9 @@ export default function Header() {
       <div className={styles.inner}>
         <div className={styles.logo}>
           <Link href="/">
-            <a>logo</a>
+            <a>
+              <Image src={logo} width={170} height={63} />
+            </a>
           </Link>
         </div>
         <div className={styles.Gnb}>
