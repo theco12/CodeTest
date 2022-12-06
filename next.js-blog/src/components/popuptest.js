@@ -1,10 +1,17 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import styles from "../styles/popup.module.css";
+import Image from "next/image";
+import char1 from "../image/char1.png";
+import char2 from "../image/char2.png";
+import char3 from "../image/char3.png";
+import char4 from "../image/char4.png";
+import char5 from "../image/char5.png";
 
 export default function Popup() {
   return (
     <div>
-      <div className="container">
+      <div className={styles.container}>
         <Swiper
           spaceBetween={50}
           slidesPerView={5}
@@ -29,12 +36,6 @@ export default function Popup() {
           </SwiperSlide>
         </Swiper>
       </div>
-
-      <style jsx>{`
-        .container {
-          background-color: black;
-        }
-      `}</style>
     </div>
   );
 }
