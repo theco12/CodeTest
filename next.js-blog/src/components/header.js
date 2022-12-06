@@ -27,6 +27,9 @@ export default function Header() {
           <Link href="/comm/notice">
             <a className={styles.menu}>설명</a>
           </Link>
+          <Link href="/comm/modalpage">
+            <a className={styles.menu}>모달테스트</a>
+          </Link>
         </div>
       </div>
     </div>
