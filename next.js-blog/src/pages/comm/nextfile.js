@@ -1,5 +1,6 @@
 import Popuptest from "components/popuptest";
 import { useState } from "react";
+import Button from "components/Button";
 
 export default function Nextfile() {
   const [Popup, setPopup] = useState(false);
@@ -16,20 +17,24 @@ export default function Nextfile() {
         const router = useRouter; const slug = router.query;
       </p>
 
-      <button
+      <Button
+        bg="#2e2e2e"
+        color="#fff"
         onClick={() => {
           setPopup(true);
         }}
       >
-        특허 출원 및 MOU
-      </button>
-      <button
+        소개영상보기
+      </Button>
+      <Button
+        bg="#1fa170"
+        color="#fff"
         onClick={() => {
           setPopup(false);
         }}
       >
-        X
-      </button>
+        도임 문의하기
+      </Button>
 
       {Popup == true ? <Popuptest /> : null}
     </div>
