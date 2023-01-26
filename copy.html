@@ -6,5 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div id="test"></div>
+
+    <script>
+      const data = [
+        { id: 1, level: 10, title: "asdf" },
+        { id: 2, level: 20, title: "sfdg" },
+        { id: 3, level: 10, title: "sbsr" },
+        { id: 4, level: 10, title: "qfsdfg" },
+        { id: 5, level: 20, title: "iusfg" },
+        { id: 6, level: 10, title: "vbre" },
+        { id: 7, level: 20, title: "sdnej" },
+        { id: 8, level: 10, title: "hsdfr" },
+        { id: 9, level: 20, title: "sfdw" },
+        { id: 10, level: 20, title: "vfe4" },
+        { id: 11, level: 10, title: "jsfrs" },
+      ];
+
+      function client(value) {
+        return value.level == 10;
+      }
+
+      const cla = data.filter(client);
+
+      console.log(data);
+      console.log(cla.length);
+
+      let count = 0;
+
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].level == 10) {
+          data[i].level = "상담자";
+          count++;
+        }
+
+        if (data[i].level == 20) {
+          data[i].level = "내담자";
+        }
+
+        console.log(count);
+        document.getElementById("test").innerHTML = "총 상담자수 : " + count;
+      }
+
+      data.forEach((value) => {
+        document.write(value.level + "<br />");
+      });
+    </script>
+  </body>
 </html>
