@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 상담자경험 유무 -->
+    <div id="experience_container">
+      <h3 class="join_title"><label for="name">상담 경험 유무</label></h3>
+      <p>이전에 심리상담을 받아본 경험이 있으신가요?</p>
+
+      <span class="box exp_check">
+        <select id="experience" class="sel" onchange="valueSelect()" required>
+          <option>선택</option>
+          <option value="none">없음</option>
+          <option value="select">있음</option>
+        </select>
+      </span>
+
+      <div id="checkbox_container" style="display: none">
+        <p>경험하신 상담 유형을 모두 체크해 주세요.</p>
+        <div class="tpye_container">
+          <div class="select">
+            <input type="checkbox" />
+            <p>대면상담</p>
+          </div>
+          <div class="select">
+            <input type="checkbox" />
+            <p>줌(화상상담)</p>
+          </div>
+          <div class="select">
+            <input type="checkbox" />
+            <p>전화상담</p>
+          </div>
+          <div class="select">
+            <input type="checkbox" />
+            <p>메타버스 상담</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function valueSelect() {
+        const exp = document.getElementById("experience").value;
+        console.log(exp);
+        if (exp == "select") {
+          document.getElementById("checkbox_container").style.display = "block";
+        } else {
+          document.getElementById("checkbox_container").style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

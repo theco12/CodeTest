@@ -9,6 +9,8 @@
   <body>
     <div id="test"></div>
 
+    <input type="text" id="userNickname" />
+
     <script>
       const data = [
         { id: 1, level: 10, title: "asdf" },
@@ -45,13 +47,33 @@
           data[i].level = "내담자";
         }
 
-        console.log(count);
+        // console.log(count);
         document.getElementById("test").innerHTML = "총 상담자수 : " + count;
       }
 
       data.forEach((value) => {
         document.write(value.level + "<br />");
       });
+
+      let userNickname = document.getElementById("userNickname").value;
+
+      const userNicknameCheck = function (userNickname) {
+        let regex = /^(?=.*?[a-zA-z]).{4,14}$/;
+        let regex2 = /^(?=.*?[가-힣]).{4,7}$/;
+        let regex3 = /\s/g;
+        return (
+          (userNickname !== "" &&
+            typeof userNickname !== "undefined" &&
+            regex.test(userNickname)) ||
+          (regex2.test(userNickname) && !regex3.test(userNickname))
+        );
+      };
+      console.log(userNicknameCheck("asdfadf"));
+
+      function a() {
+        console.log(this);
+      }
+      a();
     </script>
   </body>
 </html>
