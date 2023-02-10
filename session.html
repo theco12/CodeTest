@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Session Storage</div>
+    <button onclick="SET()">Session Stroage Set</button>
+
+    <div id="signup" style="display: none">특별가입대상</div>
+    <button onclick="sign()">인증</button>
+
+    <script>
+      function SET() {
+        sessionStorage.setItem("key", "special");
+      }
+      let value = sessionStorage.getItem("key");
+      console.log(value);
+
+      function sign() {
+        if (value === "special") {
+          let partner = document.getElementById("signup");
+          partner.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

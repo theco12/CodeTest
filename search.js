@@ -41,7 +41,7 @@ function showList(val = "") {
       const li = document.createElement("li");
 
       li.innerHTML = `
-        <img src= "${data.url}" alt="${data.name}">
+        <img src= "${data.url}" alt="${data.name}" width="80%">
         <p>이름: ${data.name}</p>
         <p>속성: ${data.type}</p>
         `;
