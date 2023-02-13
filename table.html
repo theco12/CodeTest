@@ -9,6 +9,16 @@
   <body>
     <div id="search"></div>
 
+    <select
+      id="counsel_options_${users[i].userId}"
+      style="text-align: center"
+      class="counselor_name"
+      onchange="submitCounselInfo(${users[i].userId}, ${users[i].counselCount}, ${users[i].counselorId === eCounselStatus.NONE ? null : 0})"
+    >
+      <option value="${eCounselStatus.NONE}">미지정</option>
+      ${options}
+    </select>
+
     <script>
       const data = [
         { id: 1, level: 10, title: "asdf" },

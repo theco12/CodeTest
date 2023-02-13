@@ -1,0 +1,165 @@
+<!-- daypicker -->
+<link
+  rel="stylesheet"
+  href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+/>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+form 테그 다음에
+<div
+  id="counsel_plus"
+  onclick="document.getElementById('counsel_plus_modal').style.display='block'"
+>
+  + 상담추가
+</div>
+
+<!-- 상담추가 modal -->
+<div id="counsel_plus_modal" class="modal">
+  <form class="modal-content" action="">
+    <span onclick="ReNicknameSet()" class="close" title="Close Modal"
+      >&times;</span
+    >
+
+    <div class="modal_title">
+      <h1>새로운 상담 추가하기</h1>
+      <p>
+        기존 내담자가 새로운 상담을 시작하는 경우 내담자를 검색하여 추가할 수
+        있습니다.
+      </p>
+
+      <span onclick="ReNicknameSet()" class="close" title="Close Modal"
+        >&times;</span
+      >
+    </div>
+
+    <div class="modal-container">
+      <br /><br />
+      <div class="clearfix">
+        <div class="search_btn">
+          <input
+            type="text"
+            class="counselsearch"
+            required="required"
+            placeholder="닉네임/아이디 검색"
+          />
+          <button class="counselsearch_btn">찾기</button>
+        </div>
+
+        <div class="partner-table">
+          <table class="list-table">
+            <colgroup>
+              <col width="15%" />
+              <col width="20%" />
+              <col width="20%" />
+              <col width="20%" />
+              <col width="25%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>선택</th>
+                <th>내담자 ID</th>
+                <th>내담자 닉네임</th>
+                <th>담당 상담자</th>
+                <th>상담시작일</th>
+              </tr>
+            </thead>
+            <tbody id="table3"></tbody>
+          </table>
+        </div>
+        <button type="button" class="plusbtn" onclick="changeNewUserNickname()">
+          추가하기
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<colgroup>
+  <col width="5%" />
+  <col width="10%" />
+  <col width="10%" />
+  <col width="15%" />
+  <col width="15%" />
+  <col width="15%" />
+  <col width="15%" />
+  <col width="5%" />
+</colgroup>
+
+<script>
+  async function PopupbuildTable(
+    totalCount,
+    currentPage,
+    userList,
+    counselorList
+  ) {
+    let Popuptable = document.getElementById("table3");
+
+    table.innerHTML = "";
+    let row = "";
+    let dataPerPage = 10;
+    let id_num = totalCount - (currentPage - 1) * dataPerPage;
+
+    await getPartnerCase();
+
+    const users = userList.filter((user) => {
+      return user.accessLevel == 10;
+    });
+    const counselor = counselorList;
+
+    for (let i = 0; i < users.length; i++) {
+      let options = [];
+
+      if (users[i].counselorId === eCounselStatus.EXIT) {
+        options = counselor.map((c) => {
+          return `<option value="${c.userId}" >${
+            c.userNickname || "-"
+          }</option>`;
+        });
+        options.push(
+          `<option value="${eCounselStatus.EXIT}" selected >종결</option>`
+        );
+      } else {
+        options = counselor.map((c) => {
+          if (users[i].counselorId === c.userId) {
+            return `<option value="${c.userId}" selected >${
+              c.userNickname || "-"
+            }</option>`;
+          } else {
+            return `<option value="${c.userId}" >${
+              c.userNickname || "-"
+            }</option>`;
+          }
+        });
+        options.push(`<option value="${eCounselStatus.EXIT}">종결</option>`);
+      }
+
+      row = `<tr>
+
+                 <td style="text-align:center"><input type="checkbox" id="pluschecked" required /></td>
+
+                 <td style="text-align:center">${users[i].accountId}</td>
+
+                 <td style="text-align:center">${users[i].userNickname}</td>
+
+                 <td style="text-align:center">
+                  <select id="counsel_options_${
+                    users[i].userId
+                  }" style="text-align:center" class="counselor_name" onchange='submitCounselInfo(${
+        users[i].userId
+      }, ${users[i].counselCount}, ${
+        users[i].counselorId === eCounselStatus.NONE ? null : 0
+      })'>
+                   <option  value=${eCounselStatus.NONE}>미지정</option>
+                   ${options}
+                  </select>
+                 </td>
+
+                 <td style="text-align:center">${users[i].createdAt}</td>
+                 
+                 </tr>`;
+
+      Popuptable.innerHTML += row;
+    }
+  }
+</script>
