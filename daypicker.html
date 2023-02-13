@@ -12,12 +12,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
-    <!-- 
-       <input type="text" id="datepicker" placeholder="미지정" /> -->
-    <div class="datepicker"></div>
-    <input type="chec"/>
+    <input type="text" id="datepicker" placeholder="미지정" />
 
-    <!-- <script>
+    <script>
       $(function () {
         $("#datepicker").datepicker();
       });
@@ -26,14 +23,6 @@
       dayPicker.addEventListener("change", function (event) {
         let selectedDate = event.target.value;
         console.log("Selected date:", selectedDate);
-      });
-    </script> -->
-
-    <script>
-      $(".datepicker").datepicker({
-        onSelect: function (dateString) {
-          console.log(dateString);
-        },
       });
     </script>
   </body>
