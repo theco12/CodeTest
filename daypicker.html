@@ -15,14 +15,12 @@
     <input type="text" id="datepicker" placeholder="미지정" />
 
     <script>
-      $(function () {
-        $("#datepicker").datepicker();
-      });
-
-      let dayPicker = document.getElementById("datepicker");
-      dayPicker.addEventListener("change", function (event) {
-        let selectedDate = event.target.value;
-        console.log("Selected date:", selectedDate);
+      $("#datepicker").datepicker({
+        onSelect: function (dateText, inst) {
+          var dateAsString = dateText;
+          var dateAsObject = $(this).datepicker("getDate");
+          console.log(dateAsString);
+        },
       });
     </script>
   </body>
