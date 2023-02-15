@@ -36,6 +36,15 @@ const list = document.getElementById("list");
 
 function showList(val = "") {
   list.innerHTML = "";
+
+  $("#datepicker1").datepicker({
+    onSelect: function (dateText, inst) {
+      var dateAsString = dateText;
+      var dateAsObject = $(this).datepicker("getDate");
+      console.log(dateAsString);
+    },
+  });
+
   const res = data.forEach((data) => {
     if (data.name.includes(val)) {
       const li = document.createElement("li");
@@ -44,6 +53,7 @@ function showList(val = "") {
         <img src= "${data.url}" alt="${data.name}" width="80%">
         <p>이름: ${data.name}</p>
         <p>속성: ${data.type}</p>
+        <input type="text" id="datepicker1" placeholder="미지정" />
         `;
       list.appendChild(li);
     }
