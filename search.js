@@ -37,15 +37,7 @@ const list = document.getElementById("list");
 function showList(val = "") {
   list.innerHTML = "";
 
-  $("#datepicker1").datepicker({
-    onSelect: function (dateText, inst) {
-      var dateAsString = dateText;
-      var dateAsObject = $(this).datepicker("getDate");
-      console.log(dateAsString);
-    },
-  });
-
-  const res = data.forEach((data) => {
+  const res = data.forEach((data, index) => {
     if (data.name.includes(val)) {
       const li = document.createElement("li");
 
@@ -53,7 +45,12 @@ function showList(val = "") {
         <img src= "${data.url}" alt="${data.name}" width="80%">
         <p>이름: ${data.name}</p>
         <p>속성: ${data.type}</p>
-        <input type="text" id="datepicker1" placeholder="미지정" />
+ <input
+  type="date"
+  id="datepicker-${index}"
+  step="1d"
+  onchange="datepicker(event, ${index});"
+/>
         `;
       list.appendChild(li);
     }
@@ -61,6 +58,11 @@ function showList(val = "") {
 }
 
 showList();
+
+function datepicker(event, index) {
+  const dateControl = event.target.value;
+  console.log(`Index: ${index}, Date: ${dateControl}`);
+}
 
 const searchInput = document.getElementById("search");
 const searchBtn = document.getElementById("search_button");
