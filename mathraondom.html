@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #random {
+        width: 10%;
+        height: 10%;
+        border: 1px solid #e5e5e5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>랜덤으로 숫자 생성하기</h1>
+    <p id="random">코드 생성</p>
+    <button onclick="generateRandomString()">생성하기</button>
+
+    <!-- <script>
+      function generateRandomString() {
+        let randomStr = Math.random().toString(36).substring(2, 12);
+        let random = document.getElementById("random");
+        random.innerText = randomStr;
+        console.log(randomStr);
+      }
+    </script> -->
+
+    <script>
+      function generateRandomString() {
+        const chars =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+        let randomStr = "";
+        for (let i = 0; i < 10; i++) {
+          let randomIndex = Math.floor(Math.random() * chars.length);
+          randomStr += chars[randomIndex];
+        }
+        let random = document.getElementById("random");
+        random.innerText = randomStr;
+
+        console.log(randomStr);
+      }
+    </script>
+  </body>
+</html>

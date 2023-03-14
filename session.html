@@ -15,13 +15,14 @@
 
     <script>
       function SET() {
-        sessionStorage.setItem("key", "special");
+        sessionStorage.setItem("key", "foreign");
+        let value = sessionStorage.getItem("key", "foreign");
+        console.log(value);
+        console.log(typeof value);
       }
-      let value = sessionStorage.getItem("key");
-      console.log(value);
 
       function sign() {
-        if (value === "special") {
+        if (value === "foreign") {
           let partner = document.getElementById("signup");
           partner.style.display = "block";
         }

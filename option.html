@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #list {
+        width: 100px;
+        height: 40px;
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <select id="list" onchange="sel()">
+      <option selected="selected">selected</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+    </select>
+
+    <script>
+      function sel() {
+        let list = document.getElementById("list");
+        list.options[2].selected = true;
+      }
+    </script>
+  </body>
+</html>
