@@ -1,0 +1,121 @@
+.SectionStyled {
+  width: 100%;
+  background-color: #fcfdff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 0 20px;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 1080px) {
+  .SectionStyled {
+    justify-content: flex-start;
+    padding: 80px 20px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .SectionStyled {
+    padding: 40px 20px 0;
+  }
+}
+
+.join {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logoImg {
+  width: 306px;
+}
+
+.btnInner {
+  display: flex;
+  padding: 0 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 30px;
+}
+
+.info h1 {
+  font-size: 24px;
+  white-space: pre-line;
+  text-align: center;
+  margin: 0.75em 0 0.5em;
+}
+
+@media (max-width: 768px) {
+  .info h1 {
+    font-size: 24px;
+  }
+}
+
+p {
+  font-size: 14px;
+  color: #797979;
+}
+
+.tabstyled {
+  width: 100%;
+  display: flex;
+  column-gap: 20px;
+  transition: 0.3s ease-in-out;
+}
+@media (max-width: 1080px) {
+  .tabstyled {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}
+
+.tabstyled button {
+  width: 100%;
+  padding: 20px 16px;
+  border: 1px solid #e2e2e2;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabstyled button:hover {
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tabinner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 10px;
+}
+
+.tabinner h2 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tabinner p {
+  white-space: pre-line;
+  font-size: 13px;
+  color: #999;
+  text-align: start;
+}
+
+.arrowImg {
+  color: #1fa198;
+  fill: #1fa198;
+  width: 22px;
+}
+
+.certTitle {
+  color: #1fa198;
+  fill: #1fa198;
+}
