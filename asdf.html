@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div class="partner_CDBTN">
+              <div class="partner_add">
+                <button type="button" id="">
+                  <span
+                    onclick="document.getElementById('partner_add_modal').style.display='block'"
+                    >기관 추가하기</span
+                  >
+                </button>
+              </div>
+              <div class="partner_delete">
+                <button type="button" id="">
+                  <span
+                    onclick="document.getElementById('partner_delete_modal').style.display='block'"
+                    >기관 삭제하기</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 기관추가하기 -->
+          <div id="partner_add_modal" class="modal">
+            <form class="modal-content" action="">
+              <span onclick="partnerSet()" class="close" title="Close Modal"
+                >&times;</span
+              >
+              <div class="modal-container">
+                <br />
+                <h1>기관 추가하기</h1>
+                <br />
+                <div class="safety_word">
+                  기관 상담자 코드를 입력하여 인증해 주세요.
+                </div>
+
+                <br /><br />
+                <div class="clearfix">
+                  <span class="box2 int_password">
+                    <input
+                      type="text"
+                      id="partner_code"
+                      class="int"
+                      maxlength="100"
+                      placeholder="기관 상담자 코드"
+                      required
+                    />
+                  </span>
+                  <button
+                    type="button"
+                    class="savebtn"
+                    onclick="partnerUpdate()"
+                  >
+                    인증하기
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- 기관삭제하기 -->
+          <div id="partner_delete_modal" class="modal">
+            <form class="modal-content" action="">
+              <span
+                onclick="partnerDeleteSet()"
+                class="close"
+                title="Close Modal"
+                >&times;</span
+              >
+              <div class="modal-container">
+                <br />
+                <h1>기관 삭제하기</h1>
+                <br />
+                <div class="safety_word">삭제할 기관을 선택하여 주세요.</div>
+
+                <br /><br />
+                <div class="clearfix">
+                  <select
+                    id="partner_list"
+                    class="partnerDelete"
+                    maxlength="100"
+                    onchange=""
+                  ></select>
+
+                  <button
+                    type="button"
+                    class="savebtn"
+                    onclick="partnerDelete()"
+                  >
+                    삭제하기
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+</body>
+</html>
