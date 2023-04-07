@@ -66,6 +66,8 @@
             placeholder="Your text here "
             value=""
           ></textarea>
+
+          <div id="textNew"></div>
         </div>
       </div>
     </section>
@@ -74,12 +76,30 @@
     <script>
       function submit() {
         const memo = document.getElementById("textarea1").value;
-        console.log(memo);
-        const saveMemo = document.getElementById("textarea1");
-        saveMemo.innerHTML = `${memo}`;
+
+        let textarea = document.getElementById("textarea1");
+
+        let fontSize = document.getElementById("font-size").value;
+        let color = textarea.style.getPropertyValue("color");
+        let fontWeight = textarea.style.getPropertyValue("font-weight");
+        let fontStyle = textarea.style.getPropertyValue("font-style");
+        let textDecoration = textarea.style.getPropertyValue("text-decoration");
+        let textAlign = textarea.style.getPropertyValue("text-align");
+        let textTransform = textarea.style.getPropertyValue("text-transform");
+
+        let NewText = `<textarea  id="textarea1" style="font-size: ${fontSize}px; color: ${color}; font-weight: ${fontWeight}; font-style: ${fontStyle}; text-decoration: ${textDecoration}; text-align: ${textAlign}; text-transform: ${textTransform}">${memo}</textarea>`;
+        document.getElementById("textNew").innerHTML = NewText;
+
+        console.log(NewText);
       }
     </script>
 
     <script src="texteditor.js"></script>
   </body>
 </html>
+<!-- 
+        var textAreaElement = document.createElement("textarea"); // 예시로 HTMLTextAreaElement 객체 생성
+        textAreaElement.value = memo; // 객체에 텍스트 값 추가
+
+        var textAreaString = textAreaElement.outerHTML; // HTMLTextAreaElement 객체를 문자열로 변환
+        console.log(textAreaString); // 출력: <textarea>This is a sample text</textarea> -->
