@@ -6,20 +6,6 @@
     <title>Datepicker</title>
   </head>
   <body>
-    <input
-      placeholder="Select Date..."
-      type="datetime-local"
-      id="datepicker"
-      onchange="datepicker()"
-    />
-
-    <script>
-      function datepicker() {
-        const dateControl = document.querySelector(
-          'input[type="datetime-local"]'
-        ).value;
-        console.log(dateControl);
-      }
-    </script>
+    <input type="date" class="form-control" id="datepicker" style="display: none" />
   </body>
 </html>
