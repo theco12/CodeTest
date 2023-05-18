@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="./lang.css" />
   </head>
   <body>
-    <h1 id="title">안녕하세요!</h1>
-    <p id="description">눌러주세요</p>
-    <div id="test">테스트</div>
+    <h1 id="name">이름</h1>
+    <p id="login">로그인</p>
+    <div id="sign">회원가입</div>
 
-    <a href="./lang2.html">번역2</a>
+    <a href="./lang.html">HOME</a>
+
+    <!-- Language selection -->
 
     <div class="selectedLanguage">
       <button onclick="language()"><img src="./img/globalIcon.png" /></button>
@@ -30,16 +32,18 @@
         let languageSelect = document.getElementById("languageSelect");
       };
 
-      function changeLanguage(selectedLanguage) {
-        if (!selectedLanguage) {
-          selectedLanguage = "ko";
-          languageSelect.value = "ko";
-        }
+      function changeLanguageBtn() {
+        var languageSelect = document.getElementById("languageSelect");
+        var selectedLanguage = languageSelect.value;
+        sessionStorage.setItem("language", selectedLanguage);
+        changeLanguage(selectedLanguage);
+      }
 
+      function changeLanguage(selectedLanguage) {
         var script = document.createElement("script");
         script.src = `./lang/${selectedLanguage}.js`;
         script.onload = function () {
-          setTranslatedText(selectedLanguage);
+          setTranslatedTextLogin(selectedLanguage);
         };
 
         var head = document.head || document.getElementsByTagName("head")[0];

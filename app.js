@@ -1,31 +1,33 @@
-// Language resources
-// var translations = {
-//   en: {
-//     title: "Hello!",
-//     description: "Click me",
-//     test: "test",
-//   },
-//   es: {
-//     title: "¡Hola!",
-//     description: "Haz clic",
-//     test: "prueba",
-//   },
-//   ko: {
-//     title: "안녕하세요!",
-//     description: "눌러주세요",
-//     test: "테스트",
-//   },
-// };
+let languageMenu = document.getElementById("languageMenu");
 
-// Function to set translated text
-function setTranslatedText(language) {
-  let translation = translations[language] || translations["ko"]; // Default to English if language not found
-
-  document.getElementById("title").textContent = translation.title;
-  document.getElementById("description").textContent = translation.description;
-  document.getElementById("test").textContent = translation.test;
+function language() {
+  if (languageMenu.style.display == "block") {
+    languageMenu.style.display = "none";
+  } else {
+    languageMenu.style.display = "block";
+  }
 }
 
-// Example usage
-// var userLanguage = navigator.language || navigator.userLanguage;
-// setTranslatedText(userLanguage);
+function changeLanguageBtn() {
+  let ko = document.getElementById("ko");
+  let en = document.getElementById("en");
+  let es = document.getElementById("es");
+
+  ko.addEventListener("click", () => {
+    selectedLanguage = "ko";
+    sessionStorage.setItem("language", selectedLanguage);
+    changeLanguage(selectedLanguage);
+  });
+
+  en.addEventListener("click", () => {
+    selectedLanguage = "en";
+    sessionStorage.setItem("language", selectedLanguage);
+    changeLanguage(selectedLanguage);
+  });
+
+  es.addEventListener("click", () => {
+    selectedLanguage = "es";
+    sessionStorage.setItem("language", selectedLanguage);
+    changeLanguage(selectedLanguage);
+  });
+}

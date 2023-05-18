@@ -1,0 +1,17 @@
+.selectedLanguage img {
+  width: 20%;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#languageMenu {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
