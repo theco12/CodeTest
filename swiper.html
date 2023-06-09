@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+      h1 {
+        text-align: center;
+      }
+
+      body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 35%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: block;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 200px;
+        margin: 0 10px;
+        object-fit: cover;
+        border: 1px solid #e9e9e9;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .Goverment {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .section9_btn {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+      }
+
+      .btn_text {
+        text-align: center;
+      }
+
+      .btn_info {
+        color: #ffffff;
+        background-color: #1fa170;
+        border-radius: 30px;
+        border: none;
+        width: 150px;
+        height: 40px;
+        position: relative;
+        top: 10px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>메타포레스트 도입이 고민되실 땐, 교육과 컨설팅을 받아보세요!</h1>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <h1>Goverment</h1>
+          <div class="Goverment">
+            <img src="./partner1.png" />
+            <img src="./partner2.png" />
+            <img src="./partner3.png" />
+            <img src="./partner4.png" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <h1>University</h1>
+          <div class="Goverment">
+            <img src="./partner5.png" />
+            <img src="./partner6.png" />
+            <img src="./partner7.png" />
+            <img src="./partner8.png" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <h1>NGO</h1>
+          <div class="Goverment">
+            <img src="./partner9.png" />
+            <img src="./partner10.png" />
+            <img src="./partner11.png" />
+            <img src="./partner12.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="background">
+      <div class="section9_btn">
+        <h2 class="btn_text">교육 | 컨설팅 | 시연 <br />지금 상담 받아보세요!</h2>
+        <a href="#s10"><button class="btn_info">교육문의</button></a>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {});
+    </script>
+  </body>
+</html>

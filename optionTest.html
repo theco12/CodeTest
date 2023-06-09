@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select id="mySelect" onchange="handleSelectChange()">
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+
+    <script>
+      function handleSelectChange() {
+        var selectElement = document.getElementById("mySelect");
+
+        if (selectElement.value === "2") {
+          selectElement.options[0].style.display = "none"; // 숨김 처리
+        } else {
+          selectElement.options[0].style.display = "block"; // 보이게 처리
+        }
+      }
+    </script>
+  </body>
+</html>

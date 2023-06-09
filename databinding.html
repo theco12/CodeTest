@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input id="counselor1" type="text" onchange="counselorSurvey()" />
+      <input id="counselor1check" type="checkbox" onchange="counselorSurvey()" />
+    </div>
+    <div>
+      <input id="counselor2" type="text" onchange="counselorSurvey()" />
+      <input id="counselor2check" type="checkbox" onchange="counselorSurvey()" />
+    </div>
+    <div>
+      <input id="client1" type="text" onchange="counselorSurvey()" />
+      <input id="client1check" type="checkbox" onchange="counselorSurvey()" />
+    </div>
+    <div>
+      <input id="client2" type="text" onchange="counselorSurvey()" />
+      <input id="client2check" type="checkbox" onchange="counselorSurvey()" />
+    </div>
+
+    <button type="button" onclick="submit()">제출</button>
+    <script>
+      function counselorSurvey() {
+        let counselor1 = document.getElementById("counselor1").value;
+        let counselor1Check = document.getElementById("counselor1check").checked;
+        let counselor2 = document.getElementById("counselor2").value;
+        let counselor2Check = document.getElementById("counselor2check").checked;
+        const level = 20;
+
+        console.log(counselor1);
+        console.log(counselorCheck);
+        console.log(level);
+      }
+
+      function clientSurvey() {
+        let client1 = document.getElementById("client1").value;
+        let client1Check = document.getElementById("client1check").checked;
+
+        let client2 = document.getElementById("client2").value;
+        let client2Check = document.getElementById("client2check").checked;
+
+        const level = 10;
+      }
+
+      function submit() {
+        counselorSurvey();
+        clientSurvey();
+      }
+    </script>
+  </body>
+</html>
