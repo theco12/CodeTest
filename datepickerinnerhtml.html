@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
+  <body>
+    <div id="table2"></div>
+
+    <script>
+      // $(document).ready(function () {
+      //   let table = $("#table2");
+      //   table.empty();
+
+      //   let input = $(
+      //     '<input type="text" id="datepickerStart" placeholder="Enter a start date." onchange="StartDate()" />',
+      //   );
+      //   table.append(input);
+
+      //   input.datepicker({
+      //     changeMonth: true,
+      //     changeYear: true,
+      //     dateFormat: "yy-mm-dd",
+      //   });
+      // });
+
+      let table = document.getElementById("table2");
+      table.innerHTML = "";
+      row = `<tr>
+      <input type="text" id="datepickerStart" placeholder="시작일을 입력하세요." onchange="StartDate()" />
+      </tr>`;
+
+      table.innerHTML += row;
+
+      $(document).ready(function () {
+        $("#datepickerStart").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "yy-mm-dd",
+          onSelect: function (dateText) {
+            // Callback function when a date is selected
+            console.log("Selected date:", dateText);
+          },
+        });
+      });
+
+      function StartDate() {
+        let date = document.getElementById("datepickerStart").value;
+        console.log(date);
+      }
+
+      //만약에 시작일의 value값이 생기면 종료일에 placeholder를 진행중으로 바꿔주세요.
+
+      function placeholder() {
+        if (document.getElementById("datepickerStart").value != "") {
+          document.getElementById("datepickerEnd").placeholder = "진행중";
+        }
+      }
+    </script>
+  </body>
+</html>

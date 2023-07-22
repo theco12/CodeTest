@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="datepickerStart"
+      placeholder="시작일을 입력하세요."
+      onchange="StartDate()" />
+
+    <input type="text" id="datepickerEnd" placeholder="종료일을 입력하세요." onchange="EndDate()" />
+    <div id="table2"></div>
+
+    <script>
+      let table = document.getElementById("table2");
+      table.innerHTML = "";
+      row = `
+      <input type="text" id="datepickerStart" placeholder="시작일을 입력하세요." onchange="StartDate()" />`;
+
+      table.innerHTML += row;
+
+      $(function () {
+        $("#datepickerStart").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "yy-mm-dd",
+        });
+      });
+
+      $(function () {
+        $("#datepickerEnd").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "yy-mm-dd",
+        });
+      });
+
+      function StartDate() {
+        let date = document.getElementById("datepickerStart").value;
+        console.log(date);
+        placeholder();
+        dateCheck(date);
+      }
+
+      function EndDate() {
+        let date = document.getElementById("datepickerEnd").value;
+        console.log(date);
+      }
+
+      //만약에 시작일의 value값이 생기면 종료일에 placeholder를 진행중으로 바꿔주세요.
+
+      function placeholder() {
+        if (document.getElementById("datepickerStart").value != "") {
+          document.getElementById("datepickerEnd").placeholder = "진행중";
+        }
+      }
+
+      function dateCheck(date) {
+        const currentDate = new Date();
+        const year = String(currentDate.getFullYear());
+        const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+        const day = String(currentDate.getDate()).padStart(2, "0");
+        const formattedDate = `${year}-${month}-${day}`;
+
+        if (date == formattedDate) {
+          console.log("오늘 날짜입니다.");
+        } else if (date < formattedDate) {
+          console.log("오늘 날짜보다 이전입니다.");
+        } else if (date > formattedDate) {
+          console.log("오늘 날짜보다 이후입니다.");
+        }
+      }
+    </script>
+  </body>
+</html>
