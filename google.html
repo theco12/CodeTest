@@ -5,30 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <!-- 구글 로그인 -->
-    <meta name="google-signin-scope" content="profile email" />
     <meta
       name="google-signin-client_id"
       content="526298796475-hmnjj87mb4iht7aasfv43tmkkjo3ari2.apps.googleusercontent.com" />
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-  </head>
-  <body>
-    <div
-      id="g_id_onload"
-      data-client_id="526298796475-hmnjj87mb4iht7aasfv43tmkkjo3ari2.apps.googleusercontent.com"
-      data-ux_mode="redirect"
-      data-login_uri="http://127.0.0.1:5500/google.html"></div>
-    <div class="g_id_signin" data-type="standard"></div>
+    <!-- 인증과 관련된 코드 모음 -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <script>
-      window.onload = function () {
-        google.accounts.id.initialize({
-          client_id: "526298796475-hmnjj87mb4iht7aasfv43tmkkjo3ari2.apps.googleusercontent.com",
-          callback: handleCredentialResponse,
-        });
-        google.accounts.id.prompt();
-      };
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
     </script>
+  </head>
+  <body>
+    <div>
+      <h1>google login testcode</h1>
+      <!-- data-onsuccess 로그인이 끝났을때 onsingin이라는함수를 호출하면 함수가 실행된다. -->
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
   </body>
 </html>
