@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>param Test</h1>
+
+    <!-- URL: https://www.example.com/page?name=John&age=30 -->
+    <script>
+      const url = "http://127.0.0.1:5500/diretTest.html";
+      const urlParams = new URLSearchParams(url);
+
+      console.log(window.location.search);
+
+      const lang = window.location.search.slice(1);
+
+      sessionStorage.setItem("language", lang);
+
+      // urlParams.append("lang", "en");
+
+      // document.write(urlParams + " <br/>");
+
+      // const values = urlParams.values();
+      // for (const value of values) {
+      //   document.write(value);
+      // }
+    </script>
+  </body>
+</html>

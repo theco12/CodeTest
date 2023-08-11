@@ -7,10 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/examples/media/action_target.php" method="get">
+    <form action="/examples/media/action_target.php" method="get" novalidate>
       이름 : <input type="text" name="st_name" /><br />
       학번 : <input type="text" name="st_id" /><br />
       학과 : <input type="text" name="department" disabled /><br />
+      <input type="email" required />
       <input type="submit" />
     </form>
 
@@ -21,8 +22,7 @@
     </select>
 
     <script>
-      const option = document.getElementById("my-option");
-      option.setAttribute("disabled", true);
+   
     </script>
   </body>
 </html>

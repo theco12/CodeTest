@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"></script>
+
+    <style></style>
+  </head>
+  <body>
+    <!-- 주간 위클리 달력 만들기 -->
+
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>시간</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+            <th>일</th>
+          </tr>
+        </thead>
+        <tbody id="tb_body"></tbody>
+      </table>
+    </div>
+
+    <script>
+      // 주간 달력 선택 함수
+      function changeYearWeek() {
+        loadWeeklyCalendar();
+      }
+
+      function changeWeek(diff) {
+        if (diff == undefined) {
+          current_week = parseInt($("#week").val());
+        } else {
+          current_week = current_week + diff;
+        }
+        loadWeeklyCalendar();
+      }
+
+      function loadWeeklyCalendar() {
+        const year_weekly = $("#year_weekly").val();
+        renderWeeklyCalendar(year_weekly);
+      }
+
+      function renderWeeklyCalendar(year) {
+        const firstDayOfWeek = new Date(year, current_week - 1, 1).getDay(); // 주의 첫날의 요일
+        const daysInWeek = 7;
+        const arr_weekly_calendar = [];
+
+        for (let i = 0; i < firstDayOfWeek; i++) {
+          arr_weekly_calendar.push("");
+        }
+
+        for (let i = 1; i <= daysInWeek - firstDayOfWeek; i++) {
+          arr_weekly_calendar.push(i);
+        }
+
+        renderWeekly(arr_weekly_calendar);
+      }
+
+      function renderWeekly(data) {
+        let h = [];
+
+        for (let i = 0; i < data.length; i++) {
+          if (i == 0) {
+            h.push("<tr>");
+          } else if (i % 7 == 0) {
+            h.push("</tr>");
+            h.push("<tr>");
+          }
+          h.push(`<td id="weekly_calendar_${data[i]}"> ${data[i]} </td>`);
+        }
+        h.push("</tr>");
+
+        $("#tb_weekly_body").html(h.join(""));
+      }
+
+      let current_week = getWeekNumber(new Date())[1]; // 현재 주 가져오는 함수를 추가
+
+      $("#year_weekly").val(new Date().getFullYear());
+      changeYearWeek(); // 초기 주간 달력 로드
+
+      // 주의 주차를 가져오는 함수
+      function getWeekNumber(date) {
+        const currentDate = new Date(date.getTime());
+        currentDate.setHours(0, 0, 0, 0);
+        currentDate.setDate(currentDate.getDate() + 3 - ((currentDate.getDay() + 6) % 7));
+        const week1 = new Date(currentDate.getFullYear(), 0, 4);
+        return [
+          currentDate.getFullYear(),
+          Math.round(((currentDate - week1) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7),
+        ];
+      }
+    </script>
+  </body>
+</html>

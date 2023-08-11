@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+      }
+
+      .inner {
+        width: 540px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .logo {
+        width: 162px;
+        height: 39px;
+        position: absolute;
+        top: 85px;
+        left: 0;
+      }
+
+      .passwordChange {
+        width: 382px;
+        height: 58px;
+        background-color: #f5f5f5;
+        margin: 10px 0 50px 0;
+      }
+
+      .passwordChange span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .passwordChange p {
+        text-align: center;
+        font-size: 12px;
+        color: rgb(99, 99, 99);
+      }
+
+      .passwordText {
+        width: 380px;
+        text-align: center;
+      }
+
+      .passwordText p {
+        color: #1e1e1e;
+        text-align: center;
+        font-family: Spoqa Han Sans Neo;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .Line {
+        width: 100%;
+        margin: 20px 0;
+        border: 1px solid #00a162;
+      }
+
+      .borderLine {
+        width: 100%;
+        border: 0.5px solid #00a162;
+        margin: 40px 0 15px 0;
+      }
+
+      .link {
+        text-align: center;
+      }
+
+      .link p {
+        color: #1e1e1e;
+        text-align: center;
+        font-family: Spoqa Han Sans Neo;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .MetaforestCTA {
+        width: 250px;
+        height: 50px;
+        background-color: #00a162;
+        color: #fff;
+        border: none;
+        border-radius: 500px;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner">
+        <img src="./logo1.svg" alt="logo" class="logo" />
+
+        <div class="Line"></div>
+        <div class="passwordText">
+          <h2>메타포레스트 임시 비밀번호</h2>
+          <p>
+            안녕하세요. ㅇㅇㅇ님 임시 비밀번호를 전달드립니다. 아래 코드로 로그인하시고, 내정보
+            페이지에 들어가셔서 비밀번호를 바로 변경하시기 바랍니다.
+          </p>
+        </div>
+        <div class="box">
+          <div class="password"></div>
+        </div>
+
+        <div class="passwordChange">
+          <span>123456</span>
+          <p>✓ 비밀번호 변경은 빠른 시간내에 완료해주세요.</p>
+        </div>
+
+        <button class="MetaforestCTA">METAFOREST 가기</button>
+
+        <div class="borderLine"></div>
+
+        <div class="link">
+          <p>
+            버튼이 정상적으로 클릭되지 않는다면, 아래 링크를 복사하여 접속해 주세요. <br />
+            https://www.metaforest.us/
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
