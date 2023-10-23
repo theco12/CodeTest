@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.js"
+      integrity="sha512-Olr8rkMYuxq3KpAPjYA/mAVYe7EIEP4RkhoAvD/qOrlauzE4CTvpQSg/cRX0/5Qreret4aobD0vg1xtjBqR7VA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    <style>
+      .container {
+        padding: 10px;
+        border: 5px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>redux</h1>
+    <div id="red"></div>
+    <p>
+      리듀서가 하는 역할은 새로운 스테이트값을 리턴해주면 리턴된 값이 새로운 스테이트값이 된다
+      원본을 바꾸는것이 아니라 복제한 결과를 리턴해야 리덕스를 사용하는 것을 활용할 수 있다.
+    </p>
+
+    <script>
+      function reducer(state, action) {
+        console.log(state, action);
+        if (state === undefined) {
+          return { color: "yellow" };
+        }
+        let newState;
+        if (action.type === "CHANGE_COLOR") {
+          newState = Object.assign({}, state, { color: action.color });
+        }
+
+        return newState;
+      }
+
+      const store = Redux.createStore(reducer);
+      console.log(store.getState());
+
+      function red() {
+        let state = store.getState();
+        document.getElementById("red").innerHTML = `
+          <div class="container" id="component_red" style="background-color: ${state.color}">
+            <h1>RED</h1>
+            <button onclick="store.dispatch({ type: 'CHANGE_COLOR', color: 'red' })">fire</button>
+          </div>
+        `;
+      }
+      store.subscribe(red);
+      red();
+    </script>
+  </body>
+</html>
