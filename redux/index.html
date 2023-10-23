@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 5px solid black;
+        padding: 10px;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/redux@4.1.1/dist/redux.min.js"></script>
+  </head>
+
+  <body>
+    <div id="red"></div>
+
+    <script>
+      console.log("dd");
+      function reducer(state, action) {
+        if (state === undefined) {
+          return { color: "yellow" };
+        }
+      }
+
+      let store = Redux.createStore(reducer);
+
+      console.log(store.getState());
+
+      function red() {
+        let state = store.getState();
+        document.getElementById("red").innerHTML = `
+        <div class="container" id="component_red" style="background-color=${state.color}">
+          <h1>red</h1>
+        </div>
+        `;
+      }
+      red();
+    </script>
+  </body>
+</html>
